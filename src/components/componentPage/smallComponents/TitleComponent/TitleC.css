@@ -1,0 +1,11 @@
+.title-button {
+  width: 200px;
+  height: 100px;
+  font-size: 70px;
+  border: none;
+  border-radius: 40px;
+  background-color: orange;
+}
+.title-img {
+  width: 90%;
+}

@@ -1,0 +1,65 @@
+.wrap-lead-content {
+  margin: 50px;
+  padding: 20px;
+  border-radius: 50px;
+  background-color: rgb(194, 252, 252);
+}
+.content-wrap-button-start-stop button {
+  width: 200px;
+  height: 50px;
+  font-size: 30px;
+  margin: 20px;
+  cursor: pointer;
+  border-radius: 25px;
+  background-color: rgb(129, 192, 247);
+}
+.content-wrap-button-start-stop button :active {
+  background-color: red;
+}
+.content-block-game {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  width: 650px;
+  display: grid;
+  grid-template-columns: 520px, 100px;
+  background-color: bisque;
+}
+.content-wrap-one-number {
+  width: 520px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  background-color: rgb(242, 192, 255);
+}
+.content-one-number {
+  width: 50px;
+  height: 50px;
+  font-size: 40px;
+  border: 1px solid black;
+}
+.content-wrap-one-cell {
+  grid-column: 1;
+  width: 520px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  background-color: rgb(201, 201, 247);
+}
+.content-one-cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+}
+
+.content-wrap-one-letters {
+  grid-column: 2;
+  padding: 20px;
+  background-color: aqua;
+}
+.content-one-letter {
+  width: 50px;
+  height: 50px;
+  font-size: 40px;
+  border: 1px solid black;
+}

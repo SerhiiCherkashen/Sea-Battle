@@ -1,0 +1,16 @@
+/* .content-wrap-button-start-stop button {
+  background-color: rgb(221, 64, 87);
+} */
+.content-wrap-text-up-fields {
+  display: flex;
+  justify-content: space-evenly;
+}
+.content-header-wrap-enemy-ships {
+  display: flex;
+  justify-content: center;
+}
+
+.content-header-wrap-enemy-ships h1 {
+  margin-left: auto;
+  margin-right: auto;
+}
