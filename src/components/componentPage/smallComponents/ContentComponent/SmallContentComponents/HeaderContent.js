@@ -2,11 +2,9 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   changeFight,
-  changeQuantityCells,
   changeQuantityCellsHeight,
   changeQuantityCellsWidth,
   changeQuantityShips,
-  changeWhoseMove,
   play,
 } from "../../../SeaBattleSlice";
 import "./HeaderContent.css";
@@ -15,7 +13,6 @@ const HeaderContent = () => {
   const dispatch = useDispatch();
   const { image, whoseMove, player, computer, fight, changesParametersGame } =
     useSelector((state) => state.seaBattleReducer);
-  // console.log("whoseMove : ", whoseMove);
   return (
     <div>
       <h1>Sea Battle</h1>
@@ -87,12 +84,14 @@ const HeaderContent = () => {
           <div className="content-wrap-button-start-stop">
             <button
               style={{ backgroundColor: whoseMove ? "rgb(25, 138, 236)" : "" }}
-              onClick={() => dispatch(changeWhoseMove())}>
+              // onClick={() => dispatch(changeWhoseMove())}
+            >
               Player
             </button>
             <button
               style={{ backgroundColor: whoseMove ? "" : "rgb(25, 138, 236)" }}
-              onClick={() => dispatch(changeWhoseMove())}>
+              // onClick={() => dispatch(changeWhoseMove())}
+            >
               Computer
             </button>
           </div>

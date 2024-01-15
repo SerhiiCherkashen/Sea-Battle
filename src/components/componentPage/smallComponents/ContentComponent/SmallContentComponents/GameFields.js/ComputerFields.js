@@ -9,7 +9,6 @@ import {
 import { useStateAgain } from "../../../../stateFunction";
 
 const ComputerFields = () => {
-  const [stateAgain, setStateAgain] = useState(false);
   const dispatch = useDispatch();
   const {
     changesParametersGame,
@@ -25,20 +24,28 @@ const ComputerFields = () => {
       <h1>Computer Fields</h1>
       <div className="content-block-game">
         <div
-          className="content-wrap-one-number"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(10, 1fr)",
-          }}>
+            gridTemplateColumns: `repeat(${changesParametersGame.widthField}, 1fr)`,
+          }}
+          className="content-wrap-one-number">
           {arrayNumbers.map((element, index) => {
-            return (
-              <div key={index + Date.now()} className="content-one-number">
-                {element}
-              </div>
-            );
+            if (index <= changesParametersGame.widthField - 1) {
+              return (
+                <div key={index + Date.now()} className="content-one-number">
+                  {element}
+                </div>
+              );
+            }
           })}
         </div>
-        <div className="content-wrap-one-cell">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: `repeat(${changesParametersGame.widthField}, 1fr)`,
+            gap: "0",
+          }}
+          className="content-wrap-one-cell">
           {computer.arrayOneCells.map((element, index) => {
             return (
               <div
@@ -51,7 +58,7 @@ const ComputerFields = () => {
                 className="content-one-cell"
                 onClick={() =>
                   setTimeout(() => {
-                    console.log("----------stateAgain : ", stateAgain);
+                    // console.log("----------stateAgain : ", stateAgain);
                     if (fightOnEnemy) {
                       dispatch(
                         clickOnEnemyCell({
@@ -77,7 +84,27 @@ const ComputerFields = () => {
                     }
                   }, 300)
                 }>
-                {element.stateArea && <img src={image.miniX} />}
+                <div className="content-wrap-div-img-cell">
+                  {element.stateArea && (
+                    <img
+                      style={{
+                        height: changesParametersGame.widthField < 10 && "100%",
+                        width: changesParametersGame.widthField >= 10 && "100%",
+                      }}
+                      src={image.miniX}
+                    />
+                  )}
+                  {element.attacked && element.stateChose && (
+                    <img
+                      style={{
+                        height: changesParametersGame.widthField < 10 && "100%",
+                        width: changesParametersGame.widthField >= 10 && "100%",
+                      }}
+                      src={image.fire}
+                    />
+                  )}
+                  {/* {element.x}" "{element.y} */}
+                </div>
                 {/* {element.x}" "{element.y} */}
               </div>
             );
@@ -85,11 +112,13 @@ const ComputerFields = () => {
         </div>
         <div className="content-wrap-one-letters">
           {arrayLetters.map((element, index) => {
-            return (
-              <div key={index + Date.now()} className="content-one-letter">
-                {element}
-              </div>
-            );
+            if (index <= changesParametersGame.heightField - 1) {
+              return (
+                <div key={index + Date.now()} className="content-one-letter">
+                  {element}
+                </div>
+              );
+            }
           })}
         </div>
       </div>

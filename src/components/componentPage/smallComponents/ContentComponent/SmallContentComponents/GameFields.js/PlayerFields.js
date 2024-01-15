@@ -79,8 +79,36 @@ const PlayerFields = () => {
                     }
                   }, 300)
                 }>
-                {element.stateArea && <img src={image.miniX} />}
-                {element.x}" "{element.y}
+                <div className="content-wrap-div-img-cell">
+                  {element.stateArea && (
+                    <img
+                      style={{
+                        height: changesParametersGame.widthField < 10 && "100%",
+                        width: changesParametersGame.widthField >= 10 && "100%",
+                      }}
+                      src={image.miniX}
+                    />
+                  )}
+                  {element.stateChose && !element.attacked && (
+                    <img
+                      style={{
+                        height: changesParametersGame.widthField < 10 && "100%",
+                        width: changesParametersGame.widthField >= 10 && "100%",
+                      }}
+                      src={image.ship}
+                    />
+                  )}
+                  {element.attacked && element.stateChose && (
+                    <img
+                      style={{
+                        height: changesParametersGame.widthField < 10 && "100%",
+                        width: changesParametersGame.widthField >= 10 && "100%",
+                      }}
+                      src={image.fire}
+                    />
+                  )}
+                  {/* {element.x}" "{element.y} */}
+                </div>
               </div>
             );
           })}

@@ -1,10 +1,10 @@
 import bs from "../image/BS.jpg";
 import x from "../image/x.png";
 import miniX from "../image/miniX.png";
-import up1 from "../image/up18.png";
-import down1 from "../image/down18.png";
 import up from "../image/up2.png";
 import down from "../image/down2.png";
+import ship from "../image/ship.png";
+import fire from "../image/fire.png";
 
 export const state = {
   changesParametersGame: {
@@ -18,11 +18,42 @@ export const state = {
     miniX: miniX,
     up: up,
     down: down,
+    ship: ship,
+    fire: fire,
   },
   whoseMove: true,
   arrayNumbers: [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25,
+    1, 2, 3, 4, 5,
+    // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    // 22, 23, 24, 25,
+  ],
+  arrayAlphabet: [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
   ],
   arrayLetters: [
     "A",
@@ -51,12 +82,6 @@ export const state = {
     "X",
     "Y",
     "Z",
-    "AA",
-    "BB",
-    "CC",
-    "DD",
-    "EE",
-    "FF",
   ],
   fight: false,
   fightOnEnemy: false,

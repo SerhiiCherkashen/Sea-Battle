@@ -16,6 +16,23 @@ const seaBattleSlice = createSlice({
   name: "seaBattleSlice",
   initialState: state,
   reducers: {
+    // addNumbersElements: (state) => {
+    //   for (let i = 1; i < 10; i++) {
+    //     state.arrayNumbers.push(1);
+    //   }
+    // },
+    // addLettersElements: (state) => {
+    //   for (let y = 1; y < 2; y++) {
+    //     state.arrayAlphabet.forEach((element) => {
+    //       let aaa = "";
+    //       for (let x = 0; x < y; x++) {
+    //         aaa += element;
+    //       }
+    //       state.arrayLetters.push(aaa);
+    //     });
+    //     // state.arrayNumbers.push(1);
+    //   }
+    // },
     addOneCell: (state, action) => {
       state.arrayOneCells.push(action.payload);
     },
@@ -60,7 +77,12 @@ const seaBattleSlice = createSlice({
       });
       let i = 1;
       while (i > 0) {
-        let randomIndexCoordinate = Math.round(Math.random() * 99);
+        let randomIndexCoordinate = Math.round(
+          Math.random() *
+            (state.changesParametersGame.widthField *
+              state.changesParametersGame.heightField) -
+            1
+        );
         let x = state.computer.arrayOneCells[randomIndexCoordinate].x;
         let y = state.computer.arrayOneCells[randomIndexCoordinate].y;
 
@@ -138,11 +160,12 @@ const seaBattleSlice = createSlice({
       }
     },
     clickComputerOnPlayerField: (state) => {
-      // let arrNull = [];
-      // let resultat = arrNull.findIndex((element) => element === 3);
-      // console.log("Resultat Exp-------- : ", resultat);
-
-      let randomIndex = Math.round(Math.random() * 99);
+      let randomIndex = Math.ceil(
+        Math.random() *
+          (state.changesParametersGame.widthField *
+            state.changesParametersGame.heightField) -
+          1
+      );
       let result = 1;
 
       while (result >= 0) {
@@ -151,11 +174,16 @@ const seaBattleSlice = createSlice({
           (element) => element === randomIndex
         );
         if (result !== -1) {
-          randomIndex = Math.round(Math.random() * 99);
+          randomIndex = Math.ceil(
+            Math.random() *
+              (state.changesParametersGame.widthField *
+                state.changesParametersGame.heightField) -
+              1
+          );
         }
         console.log("Random N result: ", result);
       }
-
+      console.log("randome : ", randomIndex);
       if (!state.player.arrayOneCells[randomIndex].stateChose) {
         fnComputerClickOnPlayerFalse(state, randomIndex);
       } else {
@@ -187,7 +215,13 @@ const seaBattleSlice = createSlice({
       );
     },
     changeQuantityShips: (state, action) => {
-      if (action.payload === "up" && state.changesParametersGame.ships < 15) {
+      if (
+        action.payload === "up" &&
+        state.changesParametersGame.ships <
+          state.changesParametersGame.widthField *
+            state.changesParametersGame.heightField *
+            0.12
+      ) {
         state.changesParametersGame.ships += 1;
         state.player.availableBoats += 1;
         state.player.enemyShips += 1;
@@ -206,18 +240,51 @@ const seaBattleSlice = createSlice({
       console.log("qqq");
     },
     changeQuantityCellsWidth: (state, action) => {
+      state.arrayNumbers = [];
+      for (let i = 1; i < state.changesParametersGame.widthField + 10; i++) {
+        state.arrayNumbers.push(i);
+      }
       if (action.payload === "plus") {
         state.changesParametersGame.widthField += 1;
-      } else if (action.payload === "minus") {
+      } else if (
+        action.payload === "minus" &&
+        state.changesParametersGame.widthField > 1
+      ) {
+        if (
+          state.changesParametersGame.ships >
+          state.changesParametersGame.widthField *
+            state.changesParametersGame.heightField *
+            0.12
+        ) {
+          state.changesParametersGame.ships -= 1;
+        }
         state.changesParametersGame.widthField -= 1;
       }
-
-      console.log("+1");
     },
     changeQuantityCellsHeight: (state, action) => {
+      for (let y = 1; y < 5; y++) {
+        state.arrayAlphabet.forEach((element) => {
+          let aaa = "";
+          for (let x = 0; x < y + 1; x++) {
+            aaa += element;
+          }
+          state.arrayLetters.push(aaa);
+        });
+      }
       if (action.payload === "plus") {
         state.changesParametersGame.heightField += 1;
-      } else {
+      } else if (
+        action.payload === "minus" &&
+        state.changesParametersGame.heightField > 1
+      ) {
+        if (
+          state.changesParametersGame.ships >
+          state.changesParametersGame.widthField *
+            state.changesParametersGame.heightField *
+            0.12
+        ) {
+          state.changesParametersGame.ships -= 1;
+        }
         state.changesParametersGame.heightField -= 1;
       }
     },
@@ -225,6 +292,8 @@ const seaBattleSlice = createSlice({
 });
 
 export const {
+  addNumbersElements,
+  addLettersElements,
   play,
   addOneCell,
   clickOnCell,
