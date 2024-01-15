@@ -1,26 +1,68 @@
 import bs from "../image/BS.jpg";
 import x from "../image/x.png";
 import miniX from "../image/miniX.png";
+import up1 from "../image/up18.png";
+import down1 from "../image/down18.png";
+import up from "../image/up2.png";
+import down from "../image/down2.png";
 
 export const state = {
   changesParametersGame: {
-    ships: 2,
-    width: 10,
-    height: 10,
+    ships: 5,
+    widthField: 5,
+    heightField: 10,
   },
   image: {
     battleSheepLogo: bs,
     x: x,
     miniX: miniX,
+    up: up,
+    down: down,
   },
   whoseMove: true,
-  arrayNumbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-  arrayLetters: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
+  arrayNumbers: [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24, 25,
+  ],
+  arrayLetters: [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "AA",
+    "BB",
+    "CC",
+    "DD",
+    "EE",
+    "FF",
+  ],
   fight: false,
   fightOnEnemy: false,
   player: {
     arrayOneCells: [],
-    availableBoats: 2,
+    availableBoats: 5,
     shipCoordinates: [],
     areaShipCoordinates: [],
     enemyShips: 5,
@@ -29,7 +71,7 @@ export const state = {
   },
   computer: {
     arrayOneCells: [],
-    availableBoats: 15,
+    availableBoats: 5,
     shipCoordinates: [],
     areaShipCoordinates: [],
     enemyShips: 5,

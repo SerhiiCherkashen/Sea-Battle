@@ -11,13 +11,25 @@ import { useStateAgain } from "../../../../stateFunction";
 const ComputerFields = () => {
   const [stateAgain, setStateAgain] = useState(false);
   const dispatch = useDispatch();
-  const { arrayNumbers, arrayLetters, image, player, computer, fightOnEnemy } =
-    useSelector((state) => state.seaBattleReducer);
+  const {
+    changesParametersGame,
+    arrayNumbers,
+    arrayLetters,
+    image,
+    player,
+    computer,
+    fightOnEnemy,
+  } = useSelector((state) => state.seaBattleReducer);
   return (
     <div>
       <h1>Computer Fields</h1>
       <div className="content-block-game">
-        <div className="content-wrap-one-number">
+        <div
+          className="content-wrap-one-number"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(10, 1fr)",
+          }}>
           {arrayNumbers.map((element, index) => {
             return (
               <div key={index + Date.now()} className="content-one-number">

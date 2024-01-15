@@ -28,26 +28,37 @@
 .content-wrap-one-number {
   width: 520px;
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  /* height: 100px; */
+  /* display: grid;
+  grid-template-columns: repeat(10, 1fr); */
+  /* gap: 10px; */
   background-color: rgb(242, 192, 255);
 }
 .content-one-number {
-  width: 50px;
+  /* max-width: 50px; */
+  /* width: 50px;
+  height: 50px; */
+  /* font-size: 40px; */
+
   height: 50px;
-  font-size: 40px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid black;
 }
 .content-wrap-one-cell {
   grid-column: 1;
   width: 520px;
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  background-color: rgb(201, 201, 247);
+  /* display: grid;
+  grid-template-columns: repeat(10, 1fr); */
+  gap: 10px;
+  background-color: rgb(190, 190, 245);
 }
 .content-one-cell {
-  width: 50px;
+  /* width: 50px; */
+  margin: 0;
   height: 50px;
   border: 1px solid black;
 }

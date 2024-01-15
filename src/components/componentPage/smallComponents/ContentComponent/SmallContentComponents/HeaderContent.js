@@ -1,13 +1,20 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeFight, changeWhoseMove, play } from "../../../SeaBattleSlice";
+import {
+  changeFight,
+  changeQuantityCells,
+  changeQuantityCellsHeight,
+  changeQuantityCellsWidth,
+  changeQuantityShips,
+  changeWhoseMove,
+  play,
+} from "../../../SeaBattleSlice";
 import "./HeaderContent.css";
 
 const HeaderContent = () => {
   const dispatch = useDispatch();
-  const { whoseMove, player, computer, fight } = useSelector(
-    (state) => state.seaBattleReducer
-  );
+  const { image, whoseMove, player, computer, fight, changesParametersGame } =
+    useSelector((state) => state.seaBattleReducer);
   // console.log("whoseMove : ", whoseMove);
   return (
     <div>
@@ -16,6 +23,45 @@ const HeaderContent = () => {
         <button onClick={() => dispatch(play())}>play</button>
       </div>
       <hr></hr>
+      <div className="content-wrap-wrap-changes-params">
+        <div className="content-wrap-changes-params">
+          <h1>Count Ships : {changesParametersGame.ships}</h1>
+          <div className="wrap-button">
+            <button onClick={() => dispatch(changeQuantityShips("up"))}>
+              <img src={image.up} alt="..." />
+            </button>
+            <button onClick={() => dispatch(changeQuantityShips("down"))}>
+              <img src={image.down} alt="..." />
+            </button>
+          </div>
+        </div>
+        <div className="content-wrap-changes-params">
+          <h1>Width Field : {changesParametersGame.widthField}</h1>
+          <div className="wrap-button">
+            <button onClick={() => dispatch(changeQuantityCellsWidth("plus"))}>
+              <img src={image.up} alt="..." />
+            </button>
+            <button onClick={() => dispatch(changeQuantityCellsWidth("minus"))}>
+              <img src={image.down} alt="..." />
+            </button>
+          </div>
+        </div>
+        <div className="content-wrap-changes-params">
+          <h1>Height Field : {changesParametersGame.heightField}</h1>
+          <div className="wrap-button">
+            <button onClick={() => dispatch(changeQuantityCellsHeight("plus"))}>
+              <img src={image.up} alt="..." />
+            </button>
+            <button
+              onClick={() => dispatch(changeQuantityCellsHeight("minus"))}>
+              <img src={image.down} alt="..." />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <hr></hr>
+
       <div className="content-wrap-text-up-fields">
         <div>
           {player.availableBoats !== 0 ? (

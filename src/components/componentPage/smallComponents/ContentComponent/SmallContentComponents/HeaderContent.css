@@ -1,6 +1,27 @@
 /* .content-wrap-button-start-stop button {
   background-color: rgb(221, 64, 87);
 } */
+.content-wrap-wrap-changes-params {
+  display: flex;
+  justify-content: center;
+}
+.content-wrap-changes-params {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 50px 0 50px;
+}
+.content-wrap-changes-params .wrap-button {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.content-wrap-changes-params .wrap-button button {
+  background: none;
+  border: none;
+  margin: 2px;
+}
 .content-wrap-text-up-fields {
   display: flex;
   justify-content: space-evenly;

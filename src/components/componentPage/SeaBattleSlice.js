@@ -186,6 +186,41 @@ const seaBattleSlice = createSlice({
         asd[17]
       );
     },
+    changeQuantityShips: (state, action) => {
+      if (action.payload === "up" && state.changesParametersGame.ships < 15) {
+        state.changesParametersGame.ships += 1;
+        state.player.availableBoats += 1;
+        state.player.enemyShips += 1;
+        state.computer.availableBoats += 1;
+        state.computer.enemyShips += 1;
+      } else if (
+        action.payload === "down" &&
+        state.changesParametersGame.ships > 1
+      ) {
+        state.changesParametersGame.ships -= 1;
+        state.player.availableBoats -= 1;
+        state.player.enemyShips -= 1;
+        state.computer.availableBoats -= 1;
+        state.computer.enemyShips -= 1;
+      }
+      console.log("qqq");
+    },
+    changeQuantityCellsWidth: (state, action) => {
+      if (action.payload === "plus") {
+        state.changesParametersGame.widthField += 1;
+      } else if (action.payload === "minus") {
+        state.changesParametersGame.widthField -= 1;
+      }
+
+      console.log("+1");
+    },
+    changeQuantityCellsHeight: (state, action) => {
+      if (action.payload === "plus") {
+        state.changesParametersGame.heightField += 1;
+      } else {
+        state.changesParametersGame.heightField -= 1;
+      }
+    },
   },
 });
 
@@ -197,6 +232,9 @@ export const {
   changeFight,
   clickOnEnemyCell,
   clickComputerOnPlayerField,
+  changeQuantityShips,
+  changeQuantityCellsWidth,
+  changeQuantityCellsHeight,
 } = seaBattleSlice.actions;
 export default seaBattleSlice.reducer;
 
